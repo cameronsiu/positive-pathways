@@ -1,6 +1,6 @@
 package com.positivepathways.storiesapi.service;
 
-import com.positivepathways.storiesapi.dto.AddStoryRequestDto;
+import com.positivepathways.storiesapi.dto.story.AddStoryRequestDto;
 import com.positivepathways.storiesapi.entity.Story;
 import com.positivepathways.storiesapi.repository.StoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,10 @@ public class StoryService {
         Story newStory = new Story();
         newStory.setText(request.getText());
         storyRepo.save(newStory);
+    }
+
+    public Iterable<Story> getAllStories() {
+        return storyRepo.findAll();
     }
 
 }
